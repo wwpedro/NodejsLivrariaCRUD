@@ -1,0 +1,11 @@
+Nodejs
+Banco de dados Usado - MONGODB
+
+NPM- Dependencias
+(npm install <Dependencia>)
+-express
+-express-handlebars
+-body-parser
+-mongoose
+-express-session
+-connect-flash

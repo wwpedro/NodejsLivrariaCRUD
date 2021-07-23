@@ -1,0 +1,54 @@
+{{#each error_msg }}
+  <div class="alert alert-danger" role="alert">
+  {{texto}}
+</div>
+{{/each}}
+<h2>-Cadastrar Livro-</h2>
+<form action="/bibliotecario/livro/cadastrar" method="POST">
+  <div class="form">
+    <div class="form-group">
+      <label for="titulo">Titulo</label>
+      <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo">
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor">
+    </div>
+  </div>
+  <div class="form">
+    <div class="form-group">
+      <label for="numero_paginas">Número de Páginas</label>
+      <input type="number" class="form-control" id="numero_paginas" name="numero_paginas" placeholder="123">
+    </div>
+    <div class="form-group">
+      <label for="ano_lancamento">Ano de Lançamento</label>
+      <input type="text" class="form-control" id="ano_lancamento" name="ano_lancamento" placeholder="Ano de Lançamento">
+    </div>
+  </div>
+  <!--<br>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="imagem_livro" name="imagem_livro" lang="es">
+    <label class="custom-file-label" for="customFileLang">Seleccionar Imagem</label>
+  </div>!-->
+  <div class="form-group">
+    <label for="sinopse">Sinopse</label>
+    <textarea class="form-control" name="sinopse" id="sinopse" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <div class="form-group">
+      <label for="genero">Genero</label>
+      <select id="genero" name="genero" class="form-control">
+        <option selected>Ficção Literária</option>
+        <option>Não-Ficção</option>
+        <option>Suspense</option>
+        <option>Ficção Científica</option>
+        <option>Fantasia</option>
+        <option>Horror</option>
+        <option>Poesia</option>
+        <option>Romance</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

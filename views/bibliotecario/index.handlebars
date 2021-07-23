@@ -1,0 +1,30 @@
+{{#each sucess_msg }}
+  <div class="alert alert-success" role="alert">
+  {{texto}}
+</div>
+{{/each}}
+<h1>Livros</h1>
+<a href="/bibliotecario/livro"><button type="button" class="btn btn-secondary btn-lg">Cadastrar Livros</button></a>
+<br>
+<br>
+{{#each livros}}
+<div class="card">
+  <div class="card-body">
+        <h4>{{titulo}}</h4><br>
+        <b>Autor:</b>{{autor}}<br>
+        <b>Páginas:</b>{{numero_paginas}}<br>
+        <b>Ano de Lançamento:</b>{{ano_lancamento}}<br>
+        <b>Genero:</b>{{genero}} <br><br>
+       <small><b>Sinopse:</b>{{sinopse}}</small><br><br><p>
+        <a href="/bibliotecario/livro/editar/{{_id}}"><button type="button" class="btn btn-dark">editar</button></a>
+        <form action="/bibliotecario/livro/deletar" method="post">
+          <input type="hidden" name="id" value="{{_id}}">
+        <button type="submit" class="btn btn-danger">deletar</button>
+    </form>
+  </div>
+</div>
+<br>
+{{else}}
+  <h4>Nenhum Livro cadastrado</h4>
+{{/each}}
+  
