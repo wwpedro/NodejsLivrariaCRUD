@@ -5,6 +5,7 @@
     const bodyParser = require("body-parser");
     const app = express();
     const bibliotecario = require("./rotas/bibliotecario");
+    const principal = require("./rotas/principal");
     const path = require('path');
     const mongoose = require("mongoose");
     const session = require("express-session");
@@ -48,7 +49,7 @@
         app.use(express.static(path.join(__dirname,"public")));
     
 //Rotas
-
+    app.use("/",principal)
     app.use('/bibliotecario', bibliotecario);
 
 
