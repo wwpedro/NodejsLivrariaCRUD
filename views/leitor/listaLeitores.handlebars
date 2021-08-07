@@ -1,0 +1,20 @@
+{{#each sucess_msg }}
+  <div class="alert alert-success" role="alert">
+  {{texto}}
+</div>
+{{/each}}
+<h1>Leitores</h1>
+<br>
+<br>
+{{#each leitores}}
+<div class="card">
+  <div class="card-body">
+        <h3>{{nome}}</h3>
+        <a href="/leitor/deletar/{{_id}}"><button type="button" class="btn btn-dark">deletar</button></a>
+  </div>
+</div>
+<br>
+{{else}}
+  <h4>Nenhum Letor cadastrado</h4>
+{{/each}}
+  

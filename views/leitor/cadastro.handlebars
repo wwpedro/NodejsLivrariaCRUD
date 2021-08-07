@@ -1,0 +1,52 @@
+{{#each error_msg }}
+  <div class="alert alert-danger" role="alert">
+  {{texto}}
+</div>
+{{/each}}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+    </div>
+    <div class="col">
+        <div class="card text-center">
+        <div class="card-body">
+            <img class="d-block mx-auto mb-4" src="/imagensProjeto/livro5.png" alt="" width="50" height="50">
+            <h5 class="card-title">Cadastro</h5>
+            <br>
+            <form action="/leitor/cadastrar" method="POST">
+        <div class="form">
+            <div class="form-group">
+            <label for="apelido">apelido</label>
+            <input type="text" class="form-control" id="apelido" name="apelido" placeholder="apelido">
+            </div>
+            <div class="form-group">
+            <label for="nome">nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="nome">
+            </div>
+        </div>
+        <div class="form">
+            <div class="form-group">
+            <label for="email">email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email@gmailsd.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+            <label for="senha">senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" placeholder="*******">
+            <!--<label for="senha1">senha</label>
+            <input type="text" class="form-control" id="senha1" name="senha1" placeholder="*******">-->
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+        </div>
+        </div>
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+</div>

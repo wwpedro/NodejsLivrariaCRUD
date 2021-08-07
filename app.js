@@ -5,6 +5,7 @@
     const bodyParser = require("body-parser");
     const app = express();
     const bibliotecario = require("./rotas/bibliotecario");
+    const leitor = require("./rotas/leitor")
     const principal = require("./rotas/principal");
     const path = require('path');
     const mongoose = require("mongoose");
@@ -51,6 +52,7 @@
 //Rotas
     app.use("/",principal)
     app.use('/bibliotecario', bibliotecario);
+    app.use('/leitor',leitor);
 
 
 //Outros
