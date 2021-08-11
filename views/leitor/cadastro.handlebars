@@ -1,7 +1,7 @@
-{{#each error_msg }}
+{{#each erros}}
   <div class="alert alert-danger" role="alert">
-  {{texto}}
-</div>
+    {{texto}}
+  </div>
 {{/each}}
 <div class="container">
   <div class="row">
@@ -35,8 +35,8 @@
             <div class="form-group">
             <label for="senha">senha</label>
             <input type="password" class="form-control" id="senha" name="senha" placeholder="*******">
-            <!--<label for="senha1">senha</label>
-            <input type="text" class="form-control" id="senha1" name="senha1" placeholder="*******">-->
+            <label for="senha1">repetir senha</label>
+            <input type="password" class="form-control" id="senha1" name="senha1" placeholder="*******">
             </div>
         </div>
         <br>

@@ -5,6 +5,7 @@ const mongoose  = require('mongoose');
 const router = express.Router();
 require("../models/Livro"); //importante , muito importante pra n ter dor de cabeça <3 
 const Livro = mongoose.model("livros");
+const {eBibliotecario} = require("../helpautenticacao/eBibliotecario");
 
 //Definindo Rotas
 
@@ -20,7 +21,7 @@ router.get('/livro',(req, res)=>{
     res.render("bibliotecario/livro");
 });
 
-router.post('/livro/cadastrar', (req, res)=>{
+router.post('/livro/cadastrar',(req, res)=>{
     const novoLivro = {
         titulo: req.body.titulo,
         autor: req.body.autor,
@@ -43,7 +44,7 @@ router.post('/livro/cadastrar', (req, res)=>{
 });
 
 
-router.post('/livro/deletar', (req, res)=>{
+router.post('/livro/deletar',(req, res)=>{
     Livro.deleteOne({_id : req.body.id},(erro)=>{
         if(erro){
             console.log("erro: "+erro)
@@ -61,7 +62,7 @@ router.get('/livro/editar/:id', (req, res)=>{
     });
 });
 
-router.post('/livro/editar', (req, res)=>{
+router.post('/livro/editar',(req, res)=>{
     Livro.findOne({_id:req.body.id}).then((livro)=>{
         livro.titulo = req.body.titulo,
         livro.autor = req.body.autor,
