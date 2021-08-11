@@ -4,13 +4,22 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="/livros">Livros</a>
-      <!--  <a class="nav-link" href="#">Comentarios</a>
-        <a class="nav-link" href="#">sobre</a> -->
+        {{#if user}}
+          <a class="nav-link" href="#">Comentarios</a>
+          {{else}}
+        {{/if}}
+        <!--<a class="nav-link" href="#">sobre</a>-->
       </div>
     </div>
   </div>
-  <div class="navbar-nav">
-    <a class="nav-link" href="/leitor/cadastrar">Cadastar</a>
-    <a class="nav-link" href="/leitor/login">Login</a>
-  </div>
+  {{#if user}}
+    <div class="navbar-nav">
+      <a class="nav-link" href="/leitor/logout">logout</a>
+    </div>
+  {{else}}
+    <div class="navbar-nav">
+      <a class="nav-link" href="/leitor/cadastrar">Cadastar</a>
+      <a class="nav-link" href="/leitor/login">Login</a>
+    </div>
+  {{/if}}
 </nav>
