@@ -5,10 +5,10 @@ require("../models/Leitor");
 const Leitor = mongoose.model('leitores');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
-const {eBibliotecario} = require("../helpautenticacao/eBibliotecario");
+const {ebibliotecario} = require("../helpautenticacao/eBibliotecario");
 
 //rotas
-router.get('/',(req, res)=>{
+router.get('/',ebibliotecario,(req, res)=>{
     Leitor.find().then((leitores)=>{
         res.render("leitor/listaLeitores",{leitores:leitores});
     }).catch((erro)=>{

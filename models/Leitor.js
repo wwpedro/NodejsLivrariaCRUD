@@ -20,7 +20,7 @@ const Leitor = new Schema({
     },
     eBibliotecario:{
         type: Number,
-        default: 0 
+        default: 1 
     }
 });
 
