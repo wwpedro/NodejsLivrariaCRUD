@@ -3,6 +3,10 @@ const router = express.Router();
 const mongoose = require('mongoose');
 require("../models/Livro");
 const Livro = mongoose.model("livros");
+require("../models/Leitor");
+const Leitor = mongoose.model("leitores");
+require("../models/Comentario");
+const Comentario = mongoose.model("comentarios");
 
 
 
@@ -23,7 +27,14 @@ router.get('/livros',(req, res)=>{
 });
 router.get('/livro/:id',(req, res)=>{
     Livro.findOne({_id : req.params.id}).then((livro)=>{
-        res.render("livro",{livro:livro});
+        Comentario.find({livro : req.params.id}).populate("livro","leitor").then((comentarios)=>{
+            res.render("livro",{livro:livro , comentarios:comentarios});
+            
+        }).catch((erro)=>{
+            consile.log("erro: "+erro)
+            res.redirect("/");
+        });
+
     }).catch((erro)=>{
         consile.log("erro: "+erro)
         res.redirect("/");

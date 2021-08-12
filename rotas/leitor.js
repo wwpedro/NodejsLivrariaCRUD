@@ -6,6 +6,9 @@ const Leitor = mongoose.model('leitores');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const {ebibliotecario} = require("../helpautenticacao/eBibliotecario");
+require("../models/Comentario");
+const Comentario = mongoose.model("comentarios");
+require("../models/Livro");
 
 //rotas
 router.get('/',ebibliotecario,(req, res)=>{
@@ -106,10 +109,27 @@ router.get('/logout',(req, res)=>{
     res.redirect("/");
 });
 
-
-
-
-
-
+router.post('/comentar',(req, res)=>{
+    const novoComentario = {
+        titulo:req.body.titulo,
+        conteudo:req.body.conteudo,
+        leitor:req.body.leitor,
+        livro:req.body.livro
+    }
+    new Comentario(novoComentario).save((err)=>{
+        if(err){
+            console.log("erro: "+err)
+        }
+        req.flash("sucess_msg","coemntario cadastrado com sucesso");
+        res.redirect("/livro/:id");
+    });
+});
+router.get('/livro/:id',(req, res)=>{
+    Comentario.find().then((comentarios)=>{
+        res.render("",{comentarios:comentarios});
+    }).catch((erro)=>{
+        console.log("erro"+erro);
+    });
+});
 
 module.exports = router;
