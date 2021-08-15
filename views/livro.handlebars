@@ -1,58 +1,85 @@
-<div class="text-center">
-    <img class="d-block mx-auto mb-4" src="/imagensProjeto/livro2.png" alt="" width="200" height="200">
-</div>
-<br><br>
-<div class="card">
-    <div class="card-body">
-        <h4>{{livro.titulo}}</h4><br>
-        <b>Autor:</b>{{livro.autor}}<br>
-        <b>Páginas:</b>{{livro.numero_paginas}}<br>
-        <b>Ano de Lançamento:</b>{{livro.ano_lancamento}}<br>
-        <b>Genero:</b>{{livro.genero}} <br><br>
-        <small><b>Sinopse:</b>{{livro.sinopse}}</small><br>
+{{>_navbar}}
+<div class="background">
+    <div class="text-center" id="banner_livro">
+        <h1>{{livro.titulo}}<br>
     </div>
-</div>
-<br>
-{{#if user}}
+    <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            <form action="/leitor/comentar" method="POST">
-                <div class="form">
-                    <div class="form-group">
-                        <label for="titulo">Título</label>
-                        <input type="text" class="form-control" id="titulo" name="titulo">
-                    </div>
-                    <div class="form-group">
-                        <label for="conteudo">Comentário</label>
-                        <textarea class="form-control" id="conteudo" name="conteudo" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="form">
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" id="leitor" name="leitor" value="{{user.id}}">{{apelido}}</input>
-                        <input type="hidden" class="form-control" id="livro" name="livro" value="{{livro.id}}">{{titulo}}</input>
-                    </div>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Comentar</button>
-            </form>
-            </div> 
+            <br>
+            Sinopse:
+            <small><p>{{livro.sinopse}}</p></small><br>
+            Autor: {{livro.autor}} ||
+            Páginas: {{livro.numero_paginas}} ||
+            Ano de Lançamento: {{livro.ano_lancamento}} ||
+            Genero: {{livro.genero}} <br>
+        </div>
     </div>
-{{else}}
-{{/if}}
-<br>
-    {{#each comentarios}}
-        <div class="card">
-            <div class="card-body">
-                <img class="d-block mx-auto mb-4" src="/imagensProjeto/leitorIcone.png" alt="" width="50" height="50">
-                <h4>Comentário:</h4><br>
-                <b>Titulo: </b>{{titulo}}<br>
-                <p><b>comentario: </b>{{conteudo}}</p> <br>
-                <hr>
-                <small>{{date}}</small>
+    <br>
+    </div>
+    <div id="coments">
+        <h4>-Comentários-</h4><br>
+    </div>
+    <div class="container-fluid">
+        <br>
+        <div class="row">
+            <div class="col" id="coluna_coments" >
+                {{#each comentarios}}
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="d-block mx-auto mb-4" src="/imagensProjeto/iconelivro.png" alt="" width="50" height="50">
+                            <b>Titulo: </b>{{titulo}}<br>
+                            <p><b>comentario: </b>{{conteudo}}</p>
+                            <hr>
+                            <small>{{date}}</small>
+                        </div>
+                    </div>
+                    <br>
+                    {{else}}
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="d-block mx-auto mb-4" src="/imagensProjeto/iconelivro.png" alt="" width="50" height="50">
+                            <h4>ninguém comentou sobre este livro ainda</h4>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <div class="col" id="coluna_coment">
+                {{#if user}}
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/leitor/comentar" method="POST">
+                                <div class="form">
+                                    <div class="form-group">
+                                        <label for="titulo">Título</label>
+                                        <input type="text" class="form-control" id="titulo" name="titulo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="conteudo">Comentário</label>
+                                        <textarea class="form-control" id="conteudo" name="conteudo" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form">
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" id="leitor" name="leitor" value="{{user.id}}">{{apelido}}</input>
+                                        <input type="hidden" class="form-control" id="livro" name="livro" value="{{livro.id}}">{{titulo}}</input>
+                                    </div>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-outline-dark">Comentar</button>
+                            </form>
+                        </div> 
+                    </div>
+                    {{else}}
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Deixe seu comentario neste livro, se inscreva já!</h4>
+                        </div>
+                    </div>
+                {{/if}}
             </div>
         </div>
         <br>
-    {{else}}
-    {{/each}}
-<br>
+        <br>
+    </div>
+</div>

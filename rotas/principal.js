@@ -30,13 +30,13 @@ router.get('/livro/:id',(req, res)=>{
         Comentario.find({livro : req.params.id}).populate("livro","leitor").then((comentarios)=>{
             res.render("livro",{livro:livro , comentarios:comentarios});
             
-        }).catch((erro)=>{
-            consile.log("erro: "+erro)
+        }).catch((error)=>{
+            console.log("erro: "+error);
             res.redirect("/");
         });
 
-    }).catch((erro)=>{
-        consile.log("erro: "+erro)
+    }).catch((error)=>{
+        console.log("erro: "+error);
         res.redirect("/");
     });
 });

@@ -1,0 +1,59 @@
+#bannerlivros{
+    background-image: url("/imagensProjeto/livrobanner4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif; 
+}
+#bannerlivros h5{
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+
+#banner_livro{
+background-image: url("/imagensProjeto/livrobanner1.jpg");
+background-repeat: no-repeat;
+/*background-attachment: fixed;*/
+background-size: 100% 100%;
+height: 400px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: rgb(255, 255, 255);
+font-family: 'Times New Roman', Times, serif;
+}
+#coments{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(161, 161, 161);
+}
+#coluna_coments{
+    flex-direction: column;
+    display: block;
+    overflow: auto;
+    scrollbar-width: none;
+    height: 400px;
+
+}
+#coluna_coments::-webkit-scrollbar { 
+    display: none; 
+    }
+#coluna_coment{
+    background-image: url("/imagensProjeto/livrobanner3.jpg");
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#coluna_coment h2{
+    background-color: white;
+    color: black;
+}

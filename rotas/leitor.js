@@ -121,7 +121,7 @@ router.post('/comentar',(req, res)=>{
             console.log("erro: "+err)
         }
         req.flash("sucess_msg","coemntario cadastrado com sucesso");
-        res.redirect("/livro/:id");
+        res.redirect("/livros");
     });
 });
 router.get('/livro/:id',(req, res)=>{

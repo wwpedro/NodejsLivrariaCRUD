@@ -1,24 +1,42 @@
-<div class="px-4 py-5 my-5 text-center" id="corbanner">
-    <img class="d-block mx-auto mb-4" src="imagensProjeto/livro5.png" alt="" width="110" height="110">
-    <h5 class="display-6 fw-bold">Livraria</h5>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">"O livro é um mestre que fala, mas que não responde." -Platão</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <a href="/livros"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Listas De Livros Disponiveis</button></a>
-        <!--<button type="button" class="btn btn-outline-secondary btn-lg px-4">Cadastrar</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Login</button> -->
+<div class="background">
+  {{>_navbar}}
+
+  <div id="bannerlivroindex">
+    <div class="container">
+      <div class="px-4 py-5 my-5 text-center" id="corbanner">
+          <img class="d-block mx-auto mb-4" src="imagensProjeto/livro8.png" alt="" width="110" height="110">
+          <h5 class="display-6 fw-bold">Livraria</h5>
+          <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">"O livro é um mestre que fala, mas que não responde." -Platão</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="/livros"><button type="button" class="btn btn-outline-dark btn-lg px-4">Listas De Livros Disponiveis</button></a>
+              <!--<button type="button" class="btn btn-outline-secondary btn-lg px-4">Cadastrar</button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4">Login</button> -->
+            </div>
+          </div>
       </div>
     </div>
+  </div>
+
+
+  <br>
+  <div id="coments">
+    <h4>-Livros Recentes-</h4><br>
+  </div>
+
+  <div class="container">
+    <br><br>
+    {{#each livros}}
+      <div class="card">
+        <div class="card-body">
+          <h4>{{titulo}}</h4><br>
+          <b>Autor:</b>{{autor}}<br>
+          <b>Ano de Lançamento:</b>{{ano_lancamento}}<br>
+          <b>Genero:</b>{{genero}} <br><br>
+        </div>
+      </div>
+      <br>
+    {{/each}}
+  </div>
+
 </div>
-<br><br>
-{{#each livros}}
-    <div class="card">
-    <div class="card-body">
-        <h4>{{titulo}}</h4><br>
-        <b>Autor:</b>{{autor}}<br>
-        <b>Ano de Lançamento:</b>{{ano_lancamento}}<br>
-        <b>Genero:</b>{{genero}} <br><br>
-    </div>
-    </div>
-    <br>
-{{/each}}
