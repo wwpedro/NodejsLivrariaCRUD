@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 require("../models/Leitor");
-const Leitor = mongoose.model('leitores');
+const Leitor = mongoose.model("leitores");
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const {ebibliotecario} = require("../helpautenticacao/eBibliotecario");
 require("../models/Comentario");
 const Comentario = mongoose.model("comentarios");
 require("../models/Livro");
+
 
 //rotas
 router.get('/',ebibliotecario,(req, res)=>{
@@ -126,7 +127,7 @@ router.post('/comentar',(req, res)=>{
 });
 router.get('/livro/:id',(req, res)=>{
     Comentario.find().then((comentarios)=>{
-        res.render("",{comentarios:comentarios});
+        res.redirect("",{comentarios:comentarios});
     }).catch((erro)=>{
         console.log("erro"+erro);
     });

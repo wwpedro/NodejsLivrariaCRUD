@@ -5,6 +5,8 @@ const mongoose  = require('mongoose');
 const router = express.Router();
 require("../models/Livro"); //importante , muito importante pra n ter dor de cabeça <3 
 const Livro = mongoose.model("livros");
+require("../models/Comentario");
+const Comentario = mongoose.model("comentarios");
 const {ebibliotecario} = require("../helpautenticacao/eBibliotecario");  
 
 //Definindo Rotas
@@ -82,7 +84,25 @@ router.post('/livro/editar',ebibliotecario,(req, res)=>{
     });
 });
 
+//Comentarios
 
+router.get("/comentarios",(req, res)=>{
+    Comentario.find().populate('livro leitor').then((comentarios)=>{
+        res.render("bibliotecario/comentarios",{comentarios:comentarios});
+    }).catch((erro)=>{
+        console.log("erro"+erro);
+    });
+});
+
+router.get('/deletarComentario/:id',(req, res)=>{
+    Comentario.deleteOne({_id : req.params.id},(erro)=>{
+        if(erro){
+            console.log("erro: "+erro)
+        }
+        req.flash("error_msg","comentario deletado com sucesso");
+        res.redirect("/bibliotecario/comentarios");
+    });
+});
 
 
 

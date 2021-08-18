@@ -1,0 +1,23 @@
+{{>_navbar}}
+{{#each sucess_msg }}
+  <div class="alert alert-success" role="alert">
+  {{texto}}
+</div>
+{{/each}}
+<h1>Comentarios</h1>
+<br>
+{{#each comentarios}}
+<div class="card">
+  <div class="card-body">
+        <h4>{{titulo}}</h4><br>
+        <b>Conteudo:</b>{{conteudo}}<br>
+        <b>Leitor:</b>{{leitor.apelido}}<br>
+        <b>Livro:</b>{{livro.titulo}}<br>
+        <b>Data:</b>{{date}} <br><br>
+        <a href="/bibliotecario//deletarComentario/{{_id}}"><button type="button" class="btn btn-dark">Deletar</button></a>
+  </div>
+</div>
+<br>
+{{else}}
+  <h4>Nenhum Comentario</h4>
+{{/each}}

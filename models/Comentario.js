@@ -12,12 +12,12 @@ const Comentario = new Schema({
     },
     leitor:{
         type: Schema.Types.ObjectId,
-        ref:"leitores",
+        ref: "leitores",
         required: true
     },
     livro:{
         type: Schema.Types.ObjectId,
-        ref:"livros",
+        ref: "livros",
         required: true
     },
     date:{
@@ -26,4 +26,4 @@ const Comentario = new Schema({
     }
 });
 
-mongoose.model("comentarios",Comentario)
+mongoose.model("comentarios", Comentario);

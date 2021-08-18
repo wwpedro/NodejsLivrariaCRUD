@@ -27,7 +27,7 @@ router.get('/livros',(req, res)=>{
 });
 router.get('/livro/:id',(req, res)=>{
     Livro.findOne({_id : req.params.id}).then((livro)=>{
-        Comentario.find({livro : req.params.id}).populate("livro","leitor").then((comentarios)=>{
+        Comentario.find({livro : req.params.id}).populate("livro leitor").then((comentarios)=>{
             res.render("livro",{livro:livro , comentarios:comentarios});
             
         }).catch((error)=>{
